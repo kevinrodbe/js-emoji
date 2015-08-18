@@ -339,10 +339,7 @@ function emoji(){}
 				}
 			}
 			if (ua.match(/Mac OS X 10[._ ](?:[789]|1\d)/i)){
-				if (ua.match(/Chrome/i)) {
-					var version = ua.substr(ua.lastIndexOf('Chrome/') + 7, 2);
-					if (version < 41) { return }
-				}
+				if (ua.match(/Chrome/i)) { return }
 				emoji.replace_mode = 'unified';
 				return;
 			}
