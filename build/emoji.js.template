@@ -304,10 +304,14 @@ function emoji(){}
 
 		for (var i in emoji.data){
 			for (var j=0; j<emoji.data[i][0].length; j++){
-				a.push(emoji.data[i][0][j]);
+				a.push(emoji.data[i][0][j].replace('*', '\\*'));
 				emoji.map.unified[emoji.data[i][0][j]] = i;
 			}
 		}
+
+		a = a.sort(function(a,b){
+			 return b.length - a.length;
+		});
 
 		emoji.rx_unified = new RegExp('('+a.join('|')+')(\uD83C[\uDFFB-\uDFFF])?', "g");
 	};
